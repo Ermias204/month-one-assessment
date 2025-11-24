@@ -43,7 +43,7 @@ systemctl enable sshd
 
 # Create a user for SSH access and set password
 useradd -m -s /bin/bash techcorp-user
-echo "techcorp-user:TechCorp123!" | chpasswd
+echo "techcorp-user:passwd" | chpasswd
 
 # Configure SSH to allow password authentication
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
