@@ -13,7 +13,7 @@ systemctl enable postgresql
 
 # Create database and user
 sudo -u postgres psql -c "CREATE DATABASE techcorp_app;"
-sudo -u postgres psql -c "CREATE USER techcorp_user WITH PASSWORD 'TechCorpDB123!';"
+sudo -u postgres psql -c "CREATE USER techcorp_user WITH PASSWORD 'passwd';"
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE techcorp_app TO techcorp_user;"
 
 # Configure PostgreSQL to allow connections
@@ -30,7 +30,7 @@ systemctl enable sshd
 
 # Create a user for SSH access and set password
 useradd -m -s /bin/bash techcorp-user
-echo "techcorp-user:TechCorp123!" | chpasswd
+echo "techcorp-user:passwd" | chpasswd
 
 # Configure SSH to allow password authentication
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
